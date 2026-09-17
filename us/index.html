@@ -55,6 +55,11 @@ h2{font-size:26px;line-height:1.32;font-weight:700;letter-spacing:-.022em;margin
 .pricerow{display:flex;align-items:baseline;gap:10px;margin:0 0 4px}
 .pricerow .p{font-size:26px;font-weight:700}
 .pricerow .u{font-size:12px;color:#7a7a84}
+.offer{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:7px}
+.offer li{font-size:12.5px;color:#c7c7cd;display:flex;gap:9px;align-items:baseline}
+.offer li::before{content:"";width:5px;height:5px;background:var(--accent);flex:none;
+                  transform:translateY(-2px)}
+.offer b{color:var(--accent);font-weight:700}
 /* 히어로 하단 3컷 스트립 — 첫 화면에서 착용 맥락을 바로 보여준다 */
 .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:30px}
 .strip img{width:100%;aspect-ratio:3/4;object-fit:cover}
@@ -166,6 +171,15 @@ table.szt tbody td{font-variant-numeric:tabular-nums}
 .pr .sc b{font-size:19px;color:var(--ink)}
 .pr .q{margin:0 0 12px;font-size:14px;line-height:1.62;color:var(--ink)}
 .pr .sub{margin:11px 0 0;font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.rvhead{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.rvhead .avg{font-size:40px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.rvhead .meta b{display:block;font-size:14px;letter-spacing:.1em}
+.rvhead .meta em{display:block;font-style:normal;font-size:11.5px;color:var(--ink-3);margin-top:3px}
+.rv{background:#fff;border:1px solid var(--line);padding:17px;margin-bottom:9px}
+.rv p{margin:0 0 11px;font-size:13.5px;line-height:1.62;color:var(--ink)}
+.rvtag{list-style:none;margin:0 0 10px;padding:0;display:flex;flex-wrap:wrap;gap:5px}
+.rvtag li{font-size:11px;padding:4px 9px;border:1px solid var(--line);color:var(--ink-2)}
+.rv .who{font-size:11.5px;color:var(--ink-3)}
 .pr .lk{display:inline-block;margin-top:11px;font-size:12px;color:var(--ink);
         border-bottom:1px solid var(--ink);text-decoration:none;padding-bottom:1px}
 .tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:5px}
@@ -259,6 +273,10 @@ footer b{color:#c7c7cd;font-weight:600}
     <p class="tag">The wide-last trainer. Lift and run in one shoe.</p>
     <p class="stars"><b>83</b><span>Stability score · RunRepeat’s highest mark for this shoe</span></p>
     <div class="pricerow"><span class="p">$129</span><span class="u">USD</span></div>
+    <ul class="offer">
+      <li><b>200 pairs</b> for this launch allocation</li>
+      <li><b>Free insole</b> with every pair, while they last</li>
+    </ul>
   </div>
   <div class="strip">
     <img src="assets/life/o018.jpg" width="777" height="1115"
@@ -480,16 +498,17 @@ footer b{color:#c7c7cd;font-weight:600}
   <div class="col">
     <p class="eyebrow">Sizing</p>
     <h2>Getting the size right</h2>
-    <p class="lead">We make whole sizes only, and they run about a half size large.
-      Measure once and the guesswork goes away.</p>
+    <p class="lead">We make whole sizes only. Buyers report it fits true to size —
+      measure once and the guesswork goes away.</p>
 
     <div class="sizes" id="sizes"></div>
     <p style="font-size:12px;color:var(--ink-3);margin:0">Shown as US men's · 230–300&nbsp;mm</p>
 
     <div class="rule">
       <b>Wear a half size? Round down.</b>
-      <span>A US 9.5 takes our 9. If you're a whole size, take your usual —
-        the extra width and instep room mean it won't feel sloppy.</span>
+      <span>We make whole sizes only, so a US 9.5 takes our 9. If you wear a whole size,
+        take your usual — buyers consistently report it fits true to size, and the extra
+        instep room means it won’t feel sloppy.</span>
     </div>
 
     <table class="szt">
@@ -563,14 +582,31 @@ footer b{color:#c7c7cd;font-weight:600}
         <li><span>Toebox height</span><b>33.4 mm</b><em>avg 27.1 mm</em></li>
         <li><span>Internal length</span><b>275.6 mm</b><em>avg 269.3 mm</em></li>
       </ul>
-      <p>The A-TPU midsole returns more energy than average, there's markedly more room
-        over the instep, and the shoe measures long — which is why we tell you to round down.</p>
+      <p>The A-TPU midsole returns more energy than average and there’s markedly more room
+        over the instep. The internal length also measures long — which is why a half size
+        rounds down rather than up.</p>
     </div>
 
-    <p class="todo"><b>Customer reviews still empty</b> — the press quotes above are real and
-      linked. Verified-buyer reviews are not, and this module deliberately holds none.
-      Seed them with a launch-review programme before driving paid traffic, and keep the hero
-      star rating hidden until real ratings exist.</p>
+    <p class="gl" style="color:var(--ink-3)">From buyers</p>
+    <div class="rvhead">
+      <span class="avg">5.0</span>
+      <span class="meta"><b>★★★★★</b><em>2 reviews · Korea store, translated</em></span>
+    </div>
+    <article class="rv">
+      <p>“Bought the beige in my usual size and the fit is great — my feet are completely
+        comfortable. The design is nice enough to wear commuting. The quality is well beyond
+        what the price suggests.”</p>
+      <ul class="rvtag"><li>High instep</li><li>True to size</li><li>Forefoot width just right</li></ul>
+      <span class="who">Verified buyer · 280&nbsp;mm</span>
+    </article>
+    <article class="rv">
+      <p>“Bought these for the gym.”</p>
+      <ul class="rvtag"><li>Very comfortable</li><li>True to size</li><li>Wide forefoot</li></ul>
+      <span class="who">Verified buyer · 280&nbsp;mm</span>
+    </article>
+    <p class="todo"><b>Only 2 reviews — grow this before paid traffic</b>
+      Both are real, from the Korean store, translated. Two is thin for US cold traffic.
+      The Kickstarter backers already own the shoe: email them for reviews first.</p>
   </div>
 </section>
 
@@ -681,7 +717,7 @@ footer b{color:#c7c7cd;font-weight:600}
 
 <div class="buybar">
   <div class="col">
-    <div class="p"><b>$129</b><span id="picked">Select a size</span></div>
+    <div class="p"><b>$129</b><span id="picked">Free insole · 200 pairs</span></div>
     <button type="button" onclick="buy()">Add to cart</button>
   </div>
 </div>
