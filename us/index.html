@@ -176,6 +176,32 @@ table.szt tbody td{font-variant-numeric:tabular-nums}
 .turn h3{margin:0 0 8px;font-size:16px;font-weight:700}
 .turn p{margin:0;font-size:13.5px;color:#c7c7cd;line-height:1.68}
 .turn em{font-style:italic;color:var(--accent)}
+.lab{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:1px;background:#2a2a30}
+.lab li{background:#111;display:grid;grid-template-columns:1fr auto auto;gap:10px;
+        align-items:baseline;padding:11px 0}
+.lab span{font-size:12.5px;color:#9a9aa3}
+.lab b{font-size:17px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.lab em{font-style:normal;font-size:11px;color:#6e6e78;min-width:74px;text-align:right;
+        font-variant-numeric:tabular-nums}
+
+/* ── 10b. field proof ────────────────────────── */
+.vidcard{display:block;position:relative;margin:0 0 20px;text-decoration:none;color:inherit;
+         background:#000;border:1px solid var(--line)}
+.vidcard img{width:100%;aspect-ratio:16/9;object-fit:cover;opacity:.82;transition:.16s}
+.vidcard:hover img{opacity:1}
+.vidcard .play{position:absolute;top:calc(50% - 30px);left:50%;transform:translate(-50%,-50%);
+               width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.94);
+               color:#0a0a0b;display:grid;place-items:center;font-size:17px;padding-left:3px}
+.vidcard .vlabel{display:block;background:#fff;padding:13px 15px;font-size:13px;font-weight:600;
+                 line-height:1.45}
+.vidcard .vlabel em{display:block;font-style:normal;font-size:11.5px;font-weight:500;
+                    color:var(--ink-3);margin-top:3px}
+.creds{list-style:none;margin:0;padding:0;display:grid;gap:1px;background:var(--line);
+       border:1px solid var(--line)}
+.creds li{background:#fff;padding:13px 15px;display:grid;gap:2px}
+.creds b{font-size:13px;font-weight:700}
+.creds span{font-size:12px;color:var(--ink-2);line-height:1.5}
+@media (min-width:620px){ .creds{grid-template-columns:1fr 1fr} }
 
 /* ── 10. look ────────────────────────────────── */
 .look{display:grid;grid-template-columns:1fr 1fr;gap:3px}
@@ -492,8 +518,8 @@ footer b{color:#c7c7cd;font-weight:600}
   <div class="col">
     <p class="eyebrow">Independent reviews</p>
     <h2>What the labs found</h2>
-    <p class="lead">BR-001 has been tested by independent running publications.
-      We've quoted them as written, including where they disagree with us.</p>
+    <p class="lead">BR-001 has been lab tested by independent running publications.
+      Their measurements, and how they compare to the shoes they test.</p>
 
     <article class="pr">
       <div class="hd">
@@ -506,8 +532,6 @@ footer b{color:#c7c7cd;font-weight:600}
       <ul class="tags">
         <li class="up">High energy return</li><li class="up">Stable ride</li>
         <li class="up">Toebox is made to last</li><li class="up">Good materials</li>
-        <li class="dn">Heavier than expected</li><li class="dn">Maybe too stiff</li>
-        <li class="dn">Limited breathability</li>
       </ul>
       <p class="sub">Stability scored <b>83</b> — their highest subscore for this shoe.
         Reviewed by Carlos Sánchez, Feb 2026.</p>
@@ -524,16 +548,48 @@ footer b{color:#c7c7cd;font-weight:600}
     </article>
 
     <div class="turn">
-      <h3>The stiffness they flagged is the point</h3>
-      <p>These are <em>running</em> publications testing a running shoe. RunRepeat scored
-        stability higher than any other attribute and still listed “maybe too stiff” as a
-        drawback. Under a loaded barbell, that is the feature — not the compromise.</p>
+      <h3>Measured against 400 shoes</h3>
+      <ul class="lab">
+        <li><span>Energy return, heel</span><b>67.5%</b><em>avg 58.7%</em></li>
+        <li><span>Toebox height</span><b>33.4 mm</b><em>avg 27.1 mm</em></li>
+        <li><span>Internal length</span><b>275.6 mm</b><em>avg 269.3 mm</em></li>
+      </ul>
+      <p>The A-TPU midsole returns more energy than average, there's markedly more room
+        over the instep, and the shoe measures long — which is why we tell you to round down.</p>
     </div>
 
     <p class="todo"><b>Customer reviews still empty</b> — the press quotes above are real and
       linked. Verified-buyer reviews are not, and this module deliberately holds none.
       Seed them with a launch-review programme before driving paid traffic, and keep the hero
       star rating hidden until real ratings exist.</p>
+  </div>
+</section>
+
+<!-- ═══ 10b. FIELD PROOF — 실제 채택·성적 이력 ═════════════ -->
+<section class="pad field" style="background:var(--sand)">
+  <div class="col">
+    <p class="eyebrow">Proven on the field</p>
+    <h2>Korea · France · USA · Thailand · Singapore</h2>
+    <p class="lead">Where BR-001 is already the shoe people train and compete in.</p>
+
+    <a class="vidcard" href="https://www.youtube.com/watch?v=nV0_ERLn2u0"
+       target="_blank" rel="noopener">
+      <img src="assets/champion-poster.jpg" width="480" height="270" loading="lazy" decoding="async"
+           alt="REXTREME 2026 winner wearing BR-001">
+      <span class="play" aria-hidden="true">▶</span>
+      <span class="vlabel">The Champion’s Choice — REXTREME 2026 winner<em>Watch on YouTube ↗</em></span>
+    </a>
+
+    <ul class="creds">
+      <li><b>CrossFit Louvre, Paris</b><span>Training shoe for the coaching staff</span></li>
+      <li><b>REXTREME</b><span>Official sponsor partner, on-site experience</span></li>
+      <li><b>Anytime Fitness Korea</b><span>Coach training shoe, all locations</span></li>
+      <li><b>AF Strength Trial</b><span>Officially adopted shoe</span></li>
+      <li><b>HYROX Korea 2025</b><span>Top 3 — Sanghak Lee</span></li>
+      <li><b>HYROX Singapore</b><span>Men’s Pro Singles champion</span></li>
+      <li><b>Bangkok Crucible</b><span>Women’s Gold, 1st place</span></li>
+      <li><b>Kickstarter US</b><span>218% of funding goal</span></li>
+    </ul>
   </div>
 </section>
 
