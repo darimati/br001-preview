@@ -66,6 +66,24 @@ h2{font-size:26px;line-height:1.32;font-weight:700;letter-spacing:-.022em;margin
 .trust li{font-size:11px;line-height:1.45;color:var(--ink-2);font-weight:600}
 .trust li b{display:block;font-size:15px;color:var(--ink);margin-bottom:2px}
 
+/* ── 2b. proof strip ─────────────────────────── */
+.proof{background:#fff;border-bottom:1px solid var(--line);padding-block:34px 30px}
+.proof blockquote{margin:0 0 20px;font-size:19px;line-height:1.5;font-weight:600;
+                  letter-spacing:-.015em;text-wrap:balance}
+.proof .meta{display:flex;align-items:center;gap:16px;
+             padding-top:18px;border-top:1px solid var(--line)}
+.proof .score{display:flex;align-items:baseline;gap:1px;flex:none}
+.proof .score b{font-size:34px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.proof .score span{font-size:13px;color:var(--ink-3)}
+.proof .who{font-size:12px;color:var(--ink-3);line-height:1.5}
+.proof .who > b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+                color:var(--ink);margin-bottom:2px}
+.proof .who span b{color:var(--ink)}
+.proof .also{margin:16px 0 0;font-size:12px;color:var(--ink-3);line-height:1.6}
+.proof .also b{color:var(--ink-2);font-weight:600}
+.proof .also a{color:var(--ink);text-decoration:none;
+               border-bottom:1px solid var(--ink);padding-bottom:1px;white-space:nowrap}
+
 /* ── 3. thesis ───────────────────────────────── */
 .thesis h2{font-size:29px}
 .thesis .vs{display:grid;gap:2px;background:#232327;margin:26px 0 24px}
@@ -225,6 +243,23 @@ footer b{color:#c7c7cd;font-weight:600}
       <li><b>Free</b>shipping &amp; returns</li>
       <li><b>Wide</b>last as standard</li>
     </ul>
+  </div>
+</section>
+
+<!-- ═══ 2b. PROOF STRIP — 상단 사회적 증거 ════════════════ -->
+<section class="proof">
+  <div class="col">
+    <p class="eyebrow">Independently lab tested</p>
+    <blockquote>“The A-TPU foam delivers real bounce,<br>which surprised us in a good way.”</blockquote>
+    <div class="meta">
+      <div class="score"><b>77</b><span>/100</span></div>
+      <div class="who">
+        <b>RunRepeat</b>
+        <span>Stability scored <b>83</b> — their highest subscore</span>
+      </div>
+    </div>
+    <p class="also">Also reviewed by <b>Road Trail Run</b>.
+      <a href="#press">See what they measured →</a></p>
   </div>
 </section>
 
@@ -453,7 +488,7 @@ footer b{color:#c7c7cd;font-weight:600}
 </section>
 
 <!-- ═══ 10. PRESS — 실제 제3자 리뷰만 ═══════════════════ -->
-<section class="pad">
+<section class="pad" id="press">
   <div class="col">
     <p class="eyebrow">Independent reviews</p>
     <h2>What the labs found</h2>
