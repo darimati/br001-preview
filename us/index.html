@@ -192,16 +192,25 @@ table.szt tbody td{font-variant-numeric:tabular-nums}
 .vidcard .play{position:absolute;top:calc(50% - 30px);left:50%;transform:translate(-50%,-50%);
                width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.94);
                color:#0a0a0b;display:grid;place-items:center;font-size:17px;padding-left:3px}
-.vidcard .vlabel{display:block;background:#fff;padding:13px 15px;font-size:13px;font-weight:600;
-                 line-height:1.45}
+/* 검정 밴드 안이므로 라벨도 어둡게 — 흰 배경에 흰 글씨가 되는 걸 막는다 */
+.vidcard .vlabel{display:block;background:#0f0f12;border-top:1px solid #2a2a30;
+                 padding:13px 15px;font-size:13px;font-weight:600;line-height:1.45;color:#fff}
 .vidcard .vlabel em{display:block;font-style:normal;font-size:11.5px;font-weight:500;
-                    color:var(--ink-3);margin-top:3px}
-.creds{list-style:none;margin:0;padding:0;display:grid;gap:1px;background:var(--line);
-       border:1px solid var(--line)}
-.creds li{background:#fff;padding:13px 15px;display:grid;gap:2px}
-.creds b{font-size:13px;font-weight:700}
-.creds span{font-size:12px;color:var(--ink-2);line-height:1.5}
-@media (min-width:620px){ .creds{grid-template-columns:1fr 1fr} }
+                    color:#8a8a93;margin-top:3px}
+.field .vidcard{border-color:#2a2a30}
+.gl{margin:26px 0 10px;font-size:10.5px;font-weight:700;letter-spacing:.2em;
+    text-transform:uppercase;color:#6e6e78;display:flex;align-items:center;gap:10px}
+.gl::after{content:"";flex:1;height:1px;background:#2a2a30}
+.creds{list-style:none;margin:0;padding:0;display:grid;gap:1px;background:#222228}
+.creds li{background:#0f0f12;padding:14px 4px;display:grid;
+          grid-template-columns:38px 1fr auto;gap:12px;align-items:center}
+.creds i{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.08em;color:#8a8a93;
+         border:1px solid #33333b;padding:4px 0;text-align:center;border-radius:2px}
+.creds b{display:block;font-size:14px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.creds span{display:block;font-size:11.5px;color:#8a8a93;line-height:1.45;margin-top:2px}
+.creds em{font-style:normal;font-size:15px;font-weight:800;color:var(--accent);
+          letter-spacing:-.02em;font-variant-numeric:tabular-nums;padding-right:8px;
+          white-space:nowrap}
 
 /* ── 10. look ────────────────────────────────── */
 .look{display:grid;grid-template-columns:1fr 1fr;gap:3px}
@@ -566,10 +575,10 @@ footer b{color:#c7c7cd;font-weight:600}
 </section>
 
 <!-- ═══ 10b. FIELD PROOF — 실제 채택·성적 이력 ═════════════ -->
-<section class="pad field" style="background:var(--sand)">
+<section class="pad field dark">
   <div class="col">
     <p class="eyebrow">Proven on the field</p>
-    <h2>Korea · France · USA · Thailand · Singapore</h2>
+    <h2 style="color:#fff">Korea · France · USA<br>Thailand · Singapore</h2>
     <p class="lead">Where BR-001 is already the shoe people train and compete in.</p>
 
     <a class="vidcard" href="https://www.youtube.com/watch?v=nV0_ERLn2u0"
@@ -580,15 +589,24 @@ footer b{color:#c7c7cd;font-weight:600}
       <span class="vlabel">The Champion’s Choice — REXTREME 2026 winner<em>Watch on YouTube ↗</em></span>
     </a>
 
+    <p class="gl">Adopted by</p>
     <ul class="creds">
-      <li><b>CrossFit Louvre, Paris</b><span>Training shoe for the coaching staff</span></li>
-      <li><b>REXTREME</b><span>Official sponsor partner, on-site experience</span></li>
-      <li><b>Anytime Fitness Korea</b><span>Coach training shoe, all locations</span></li>
-      <li><b>AF Strength Trial</b><span>Officially adopted shoe</span></li>
-      <li><b>HYROX Korea 2025</b><span>Top 3 — Sanghak Lee</span></li>
-      <li><b>HYROX Singapore</b><span>Men’s Pro Singles champion</span></li>
-      <li><b>Bangkok Crucible</b><span>Women’s Gold, 1st place</span></li>
-      <li><b>Kickstarter US</b><span>218% of funding goal</span></li>
+      <li><i>FR</i><div><b>CrossFit Louvre</b><span>Paris · coaching staff training shoe</span></div></li>
+      <li><i>KR</i><div><b>Anytime Fitness Korea</b><span>Coach training shoe, all locations</span></div></li>
+      <li><i>KR</i><div><b>AF Strength Trial</b><span>Officially adopted shoe</span></div></li>
+      <li><i>KR</i><div><b>REXTREME</b><span>Official sponsor partner · on-site experience</span></div></li>
+    </ul>
+
+    <p class="gl">Won in</p>
+    <ul class="creds">
+      <li><i>SG</i><div><b>HYROX Singapore</b><span>Men’s Pro Singles</span></div><em>1st</em></li>
+      <li><i>TH</i><div><b>Bangkok Crucible</b><span>Women’s division</span></div><em>Gold</em></li>
+      <li><i>KR</i><div><b>HYROX Korea 2025</b><span>Sanghak Lee</span></div><em>Top 3</em></li>
+    </ul>
+
+    <p class="gl">And</p>
+    <ul class="creds">
+      <li><i>US</i><div><b>Kickstarter</b><span>of funding goal reached</span></div><em>218%</em></li>
     </ul>
   </div>
 </section>
