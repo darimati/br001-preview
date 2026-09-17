@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>BR-001 CORE BLACK — 헬스장 한 켤레</title>
+<link rel="stylesheet" as="style" crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* ══════════════════════════════════════════════════════════
+   BR-001 CORE BLACK — 일반 헬스장 페르소나 랜딩 (프로토타입)
+   기존 /pages/br001-preorder 와 분화: 증명방식·논증구조·구매압력
+   섹션 단위로 Shopify 로 이식 가능하도록 섹션마다 주석 표시
+   ══════════════════════════════════════════════════════════ */
+:root{
+  --col:560px;              /* 본문 컬럼 — 기존 사전예약 페이지와 동일 폭 */
+  --pad:24px;
+  --ink:#0d0d0d;
+  --ink-2:#52525a;
+  --ink-3:#8e8e96;
+  --line:#e4e4e7;
+  --paper:#f6f6f4;
+  --black:#0b0b0b;
+  --accent:#c8ff2e;         /* 강조 — 도식/수치용 */
+  --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,
+         "Apple SD Gothic Neo","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);
+     font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;
+     padding-bottom:calc(84px + env(safe-area-inset-bottom));
+     -webkit-tap-highlight-color:rgba(0,0,0,.06);text-size-adjust:100%}
+/* width/height 속성은 presentational hint 라 CSS 가 width 만 지정한 곳에서
+   height 가 그대로 적용된다. 비율 유지를 기본값으로 둔다. */
+img{display:block;max-width:100%;height:auto}
+.col{max-width:var(--col);margin:0 auto;padding-inline:var(--pad)}
+section{position:relative}
+.dark{background:var(--black);color:#fff}
+.dark .lead,.dark p{color:#c9c9cf}
+
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+         color:var(--ink-3);margin:0 0 14px}
+.dark .eyebrow{color:#7b7b85}
+h2{font-size:27px;line-height:1.38;font-weight:700;letter-spacing:-.02em;margin:0 0 16px}
+.lead{font-size:15.5px;color:var(--ink-2);margin:0 0 26px}
+.pad{padding-block:68px}
+
+/* ── 1. 히어로 ─────────────────────────────────── */
+.hero{background:var(--black);color:#fff;padding-block:52px 60px}
+.hero .brand{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.hero .brand img{width:104px;filter:brightness(0) invert(1)}
+.hero .brand span{font-size:10px;letter-spacing:.2em;color:#7b7b85}
+.hero h1{font-size:40px;line-height:1.24;font-weight:800;letter-spacing:-.035em;margin:0 0 20px}
+.hero .sub{font-size:16px;color:#c9c9cf;margin:0 0 6px}
+.hero .model{font-size:12px;letter-spacing:.16em;color:#7b7b85;margin-top:22px}
+.hero img.shoe{margin:0 -12px 30px;width:calc(100% + 24px)}
+.hero .vcap{margin:12px 0 0;font-size:11.5px;letter-spacing:.06em;color:#7b7b85}
+/* 메인 영상 — 자동재생은 음소거가 조건이라 소리 토글을 붙인다 */
+.vid{position:relative;margin:34px -24px 0;background:#000}
+.vid video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.vid .snd{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.62);color:#fff;
+          border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 14px;
+          font-family:inherit;font-size:12px;cursor:pointer;backdrop-filter:blur(4px)}
+.vid .snd:hover{background:rgba(0,0,0,.85)}
+
+
+/* ── 2. 루틴 타임라인 ───────────────────────────── */
+.tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tl li{display:grid;grid-template-columns:72px 1fr;gap:16px;
+       padding:22px 0;border-bottom:1px solid var(--line)}
+.tl .fig{display:block;text-align:center}
+.tl .ico{display:block;width:72px;height:72px}
+.tl .t{display:block;margin-top:1px;font-size:10.5px;font-variant-numeric:tabular-nums;
+       color:var(--ink-3);font-weight:600;letter-spacing:.04em}
+.tl h3{margin:0 0 5px;font-size:15.5px;font-weight:700}
+.tl p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.62}
+.tl .last{background:#eceae4;margin:0 -12px;padding:20px 12px;border-bottom:0}
+
+/* ── 3. 통념 반박 (핵심) ────────────────────────── */
+.myth h2{font-size:29px}
+.myth .quoted{color:#fff}
+.myth .answer{font-size:17px;font-weight:600;color:#fff;margin:0 0 30px;line-height:1.55}
+.myth .answer em{font-style:normal;color:var(--accent)}
+figure.dia{margin:34px 0 30px;background:#141416;border:1px solid #232327;padding:22px 18px 18px}
+figure.dia svg{width:100%;height:auto;display:block}
+figure.dia figcaption{margin-top:18px;font-size:12px;color:#7b7b85;line-height:1.6}
+/* 좁은 화면에서는 두 패널을 세로로 쌓아 각각 전체 폭을 쓴다 */
+.dia-grid{display:grid;grid-template-columns:1fr;gap:26px}
+.dia-grid .panel h5{margin:0 0 4px;font-size:12px;letter-spacing:.06em;color:#8e8e96;font-weight:600}
+.dia-grid .panel.hi h5{color:#fff}
+.dia-grid .panel .r{margin:10px 0 0;font-size:12.5px;color:#9a9aa4;line-height:1.55}
+.dia-grid .panel .r b{color:#c9c9cf;font-weight:600}
+.dia-grid .panel .r b.ok{color:var(--accent)}
+@media (min-width:620px){ .dia-grid{grid-template-columns:1fr 1fr;gap:22px} }
+.myth .note{border-left:2px solid var(--accent);padding-left:16px;margin-top:28px;
+            font-size:14px;color:#c9c9cf}
+
+/* ── 4. 스펙 ───────────────────────────────────── */
+.spec{border-top:1px solid var(--line);padding-top:26px;margin-top:26px}
+.spec:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.spec .n{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--ink-3)}
+.spec h3{margin:6px 0 10px;font-size:19px;font-weight:700;letter-spacing:-.01em}
+.spec p{margin:0 0 18px;font-size:14px;color:var(--ink-2)}
+.spec img{width:100%}
+
+/* ── 5. 비교표 ─────────────────────────────────── */
+.cmp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.cmp{border-collapse:collapse;width:100%;font-size:13px}
+table.cmp th,table.cmp td{padding:13px 8px;text-align:center;border-bottom:1px solid var(--line)}
+/* 좁은 화면 — 설명어(.w)를 접고 기호만 남겨 BR-001 열이 잘리지 않게 한다 */
+.cmp .w{display:none}
+@media (min-width:620px){
+  table.cmp th,table.cmp td{padding:13px 10px}
+  .cmp .w{display:inline}
+}
+table.cmp thead th{font-size:11.5px;letter-spacing:.04em;color:var(--ink-3);font-weight:600;
+                   border-bottom:1px solid var(--ink)}
+table.cmp tbody th{text-align:left;font-weight:600;color:var(--ink);white-space:nowrap}
+table.cmp .me{background:#111;color:#fff}
+table.cmp thead .me{background:#111;color:#fff;border-bottom:1px solid #111}
+table.cmp .me.good{color:var(--accent);font-weight:700}
+.mark{font-size:15px;line-height:1}
+.cmp-note{font-size:11.5px;color:var(--ink-3);margin-top:12px;line-height:1.6}
+
+/* ── 6. 사이즈 ─────────────────────────────────── */
+.sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:22px 0 16px}
+.sizes button{min-height:46px;padding:13px 0;border:1px solid var(--line);background:#fff;font-family:inherit;
+              font-size:14px;cursor:pointer;transition:.12s}
+.sizes button:hover{border-color:var(--ink)}
+.sizes button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.howto{background:#fff;border:1px solid var(--line);padding:20px;margin-top:20px}
+.howto h4{margin:0 0 10px;font-size:13px;font-weight:700}
+.howto ol{margin:0;padding-left:18px;font-size:13px;color:var(--ink-2)}
+.howto li{margin-bottom:5px}
+.todo{background:#fffbe6;border:1px dashed #d9bf4a;color:#7a6412;font-size:12px;
+      padding:10px 12px;margin-top:14px;line-height:1.6}
+table.szt{border-collapse:collapse;width:100%;margin-top:20px;font-size:13.5px}
+table.szt th,table.szt td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left}
+table.szt thead th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+                   color:var(--ink-3);border-bottom:1px solid var(--ink)}
+table.szt td{font-variant-numeric:tabular-nums}
+table.szt td:last-child{text-align:right;font-weight:700}
+.rule{background:#111;color:#fff;padding:18px 20px;margin-top:20px}
+.rule b{display:block;font-size:15.5px;margin-bottom:6px}
+.rule span{font-size:13px;color:#c9c9cf;line-height:1.7}
+.fit{border-top:1px solid var(--line);margin-top:24px;padding-top:20px}
+.fit h4{margin:0 0 8px;font-size:14.5px;font-weight:700}
+.fit p{margin:0 0 12px;font-size:13.5px;color:var(--ink-2)}
+.fit p:last-child{margin-bottom:0}
+
+/* ── 7. 리스크 제거 ────────────────────────────── */
+.risk{display:grid;gap:2px;background:var(--line);border:1px solid var(--line)}
+.risk div{background:#fff;padding:20px}
+.risk h4{margin:0 0 6px;font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:8px}
+.risk h4 i{font-style:normal;color:var(--accent);background:#111;width:19px;height:19px;
+           border-radius:50%;display:grid;place-items:center;font-size:11px;flex:none}
+.risk p{margin:0;font-size:13px;color:var(--ink-2)}
+
+/* ── 8. 룩북 ───────────────────────────────────── */
+.look{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.look img{width:100%;height:100%;object-fit:cover}
+.look .wide{grid-column:1/-1}
+
+/* ── 9. FAQ ────────────────────────────────────── */
+details{border-bottom:1px solid var(--line)}
+details summary{padding:18px 26px 18px 0;min-height:46px;font-size:14.5px;font-weight:600;cursor:pointer;
+                list-style:none;position:relative}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:'+';position:absolute;right:2px;top:15px;font-size:17px;color:var(--ink-3)}
+details[open] summary::after{content:'−'}
+details p{margin:0 0 18px;font-size:13.5px;color:var(--ink-2)}
+
+/* ── 10. 선수 ──────────────────────────────────── */
+.ath{display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center;margin-bottom:22px}
+.ath img{width:96px;height:96px;object-fit:cover;border-radius:50%}
+.ath h3{margin:0 0 3px;font-size:16px;font-weight:700}
+.ath p{margin:0;font-size:12.5px;color:#8e8e96}
+blockquote{margin:0;font-size:15.5px;line-height:1.66;color:#e8e8ec}
+blockquote cite{display:block;margin-top:14px;font-style:normal;font-size:12px;color:#7b7b85}
+
+/* ── CTA ───────────────────────────────────────── */
+.buybar{position:fixed;left:0;right:0;bottom:0;background:rgba(11,11,11,.97);
+        backdrop-filter:blur(8px);border-top:1px solid #232327;z-index:50;
+        padding:11px 0 calc(11px + env(safe-area-inset-bottom))}
+.buybar .col{display:flex;align-items:center;gap:14px}
+.buybar .p{flex:1;min-width:0}
+.buybar .p b{display:block;color:#fff;font-size:16px}
+.buybar .p span{font-size:11.5px;color:#7b7b85}
+.buybar button{background:#fff;color:#0b0b0b;border:0;padding:15px 26px;font-family:inherit;
+               font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap}
+.buybar button:hover{background:var(--accent)}
+
+footer{background:var(--black);color:#6e6e78;font-size:11.5px;padding:44px 0 34px;line-height:1.85}
+footer b{color:#c9c9cf;font-weight:600}
+
+@media (max-width:420px){
+  .hero h1{font-size:34px}
+  h2{font-size:24px}
+  .sizes{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ 1. HERO ══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="col">
+    <div class="brand">
+      <img width="1200" height="300" src="assets/logo.png" alt="DARIMATI">
+      <span>BR-001 CORE BLACK</span>
+    </div>
+    <img class="shoe" width="1200" height="957" src="assets/main-cut.webp"
+         alt="BR-001 Core Black 3/4 측면">
+    <p class="eyebrow">For everyday training</p>
+    <h1>헬스장 갈 때<br>신발 두 켤레<br>챙기지 마세요</h1>
+    <p class="sub">트레드밀 웜업부터 스쿼트까지, 한 켤레로.</p>
+    <p class="model">BR-001 CORE BLACK · 159,000원</p>
+    <div class="vid">
+      <video id="hv" src="assets/hero.mp4" poster="assets/hero-poster.jpg"
+             muted loop playsinline preload="none"
+             disablepictureinpicture controlslist="nodownload noplaybackrate"></video>
+      <button class="snd" type="button" id="sndBtn" onclick="toggleSound()">🔇 소리 켜기</button>
+    </div>
+    <p class="vcap">코치 이상학 · 하이브리드 선수</p>
+  </div>
+</section>
+
+<!-- ═══ 2. 루틴 타임라인 ══════════════════════════════════ -->
+<section class="pad">
+  <div class="col">
+    <p class="eyebrow">Your one hour</p>
+    <h2>오늘 저녁, 헬스장 한 시간</h2>
+    <p class="lead">운동 중간에 신발을 갈아 신는 사람은 없습니다.
+      그런데 대부분의 신발은 그 한 시간 중 일부만 감당합니다.</p>
+
+    <ul class="tl">
+      <li>
+        <span class="fig">
+          <svg class="ico" viewBox="0 0 64 64" role="img" aria-label="트레드밀 위에서 달리는 동작">
+          <g fill="none" stroke="#c2c2c8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 52 L44 52"/><path d="M5 48 L41 48"/><path d="M46 52 L49 28"/><rect x="46" y="13" width="15" height="10" rx="2"/><path d="M42 29 L58 29"/></g>
+          <g fill="#0d0d0d">
+            <circle cx="29" cy="9.5" r="5.4"/>
+            <g fill="none" stroke="#0d0d0d" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28.5 13.5 L27.5 17" stroke-width="5"/>
+              <path d="M27.5 17.5 L25 30" stroke-width="8"/>
+              <g stroke-width="5"><path d="M26.5 20 L35.5 23 L35.5 15"/><path d="M26.5 20 L17 24.5 L19 31.5"/></g>
+              <g stroke-width="6.5"><path d="M25 30 L36 31 L33 39.5"/><path d="M25 30 L21 39.5 L17 48"/></g>
+            </g>
+            <g transform="translate(30,38.6) rotate(-28)"><path d="M0 0 h6.8 q3.6 0 4.3 2 q.45 1.5 -1.5 1.5 h-9.8 q-2.2 0 -2.2 -1.75 q0 -1.75 2.2 -1.75 z"/></g><g transform="translate(14,48.6)"><path d="M0 0 h6.8 q3.6 0 4.3 2 q.45 1.5 -1.5 1.5 h-9.8 q-2.2 0 -2.2 -1.75 q0 -1.75 2.2 -1.75 z"/></g>
+          </g>
+          <g fill="none" stroke="#0d0d0d" stroke-width="2.6" stroke-linecap="round"></g>
+        </svg>
+          <span class="t">00:00</span>
+        </span>
+        <div><h3>트레드밀 웜업</h3>
+          <p>A-TPU 100% 미드솔이 착지 에너지를 되돌려줍니다. 웜업에서 다리를 미리 소모하지 않습니다.</p></div></li>
+      <li>
+        <span class="fig">
+          <svg class="ico" viewBox="0 0 64 64" role="img" aria-label="바벨을 메고 스쿼트하는 동작">
+          <g fill="none" stroke="#c2c2c8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 22 L55 22"/><rect x="10" y="14.5" width="4.5" height="15" rx="2"/><rect x="49.5" y="14.5" width="4.5" height="15" rx="2"/><path d="M4 52 L60 52"/></g>
+          <g fill="#0d0d0d">
+            <circle cx="35" cy="12" r="5.4"/>
+            <g fill="none" stroke="#0d0d0d" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M33.5 16 L32 19" stroke-width="5"/>
+              <path d="M32 19 L23 34" stroke-width="8"/>
+              <g stroke-width="5"><path d="M30 21.5 L23 23"/></g>
+              <g stroke-width="6.5"><path d="M23 34 L37.5 36.5 L33 47.8"/></g>
+            </g>
+            <g transform="translate(30,48.4)"><path d="M0 0 h6.8 q3.6 0 4.3 2 q.45 1.5 -1.5 1.5 h-9.8 q-2.2 0 -2.2 -1.75 q0 -1.75 2.2 -1.75 z"/></g>
+          </g>
+          <g fill="none" stroke="#0d0d0d" stroke-width="2.6" stroke-linecap="round">M27 54 L41 54</g>
+        </svg>
+          <span class="t">00:10</span>
+        </span>
+        <div><h3>스쿼트 · 데드리프트</h3>
+          <p>Stable Core™ 넓은 플랫폼이 좌우로 눌리지 않습니다. 바벨 아래에서 발바닥이 바닥에 그대로 붙어 있습니다.</p></div></li>
+      <li>
+        <span class="fig">
+          <svg class="ico" viewBox="0 0 64 64" role="img" aria-label="런지 자세">
+          <g fill="none" stroke="#c2c2c8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 52 L60 52"/></g>
+          <g fill="#0d0d0d">
+            <circle cx="25" cy="11" r="5.4"/>
+            <g fill="none" stroke="#0d0d0d" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M25 15 L25 18" stroke-width="5"/>
+              <path d="M25 18 L25 34" stroke-width="8"/>
+              <g stroke-width="5"><path d="M25 22 L19 31"/><path d="M25 22 L30.5 31"/></g>
+              <g stroke-width="6.5"><path d="M25 34 L36 38 L36 47.8"/><path d="M25 34 L15.5 46.5 L10.5 49.5"/></g>
+            </g>
+            <g transform="translate(33,48.4)"><path d="M0 0 h6.8 q3.6 0 4.3 2 q.45 1.5 -1.5 1.5 h-9.8 q-2.2 0 -2.2 -1.75 q0 -1.75 2.2 -1.75 z"/></g><g transform="translate(8,46.9) rotate(27)"><path d="M0 0 h6.8 q3.6 0 4.3 2 q.45 1.5 -1.5 1.5 h-9.8 q-2.2 0 -2.2 -1.75 q0 -1.75 2.2 -1.75 z"/></g>
+          </g>
+          <g fill="none" stroke="#0d0d0d" stroke-width="2.6" stroke-linecap="round">M30 54 L44 54</g>
+        </svg>
+          <span class="t">00:30</span>
+        </span>
+        <div><h3>런지 · 스텝업</h3>
+          <p>Bridge Mechanics™ 구조의 측면 지지와 비틀림 제어가 방향을 바꾸는 순간 발의 중심을 잡아줍니다.</p></div></li>
+      <li>
+        <span class="fig">
+          <svg class="ico" viewBox="0 0 64 64" role="img" aria-label="케틀벨을 들고 스윙하는 동작">
+          <g fill="none" stroke="#c2c2c8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 52 L60 52"/><circle cx="47" cy="27.5" r="5"/><path d="M43.6 23.8 Q47 19.2 50.4 23.8"/></g>
+          <g fill="#0d0d0d">
+            <circle cx="25" cy="12" r="5.4"/>
+            <g fill="none" stroke="#0d0d0d" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M25 16 L25 19" stroke-width="5"/>
+              <path d="M25 19 L25 33" stroke-width="8"/>
+              <g stroke-width="5"><path d="M25 22 L41 24.5"/></g>
+              <g stroke-width="6.5"><path d="M25 33 L21 42 L20 47.8"/><path d="M25 33 L30 42 L31.5 47.8"/></g>
+            </g>
+            <g transform="translate(17,48.4)"><path d="M0 0 h6.8 q3.6 0 4.3 2 q.45 1.5 -1.5 1.5 h-9.8 q-2.2 0 -2.2 -1.75 q0 -1.75 2.2 -1.75 z"/></g><g transform="translate(28.5,48.4)"><path d="M0 0 h6.8 q3.6 0 4.3 2 q.45 1.5 -1.5 1.5 h-9.8 q-2.2 0 -2.2 -1.75 q0 -1.75 2.2 -1.75 z"/></g>
+          </g>
+          <g fill="none" stroke="#0d0d0d" stroke-width="2.6" stroke-linecap="round">M15 54 L38 54</g>
+        </svg>
+          <span class="t">00:45</span>
+        </span>
+        <div><h3>케틀벨 · 박스 점프</h3>
+          <p>Full-coverage CPU 아웃솔과 다방향 러그 패턴. 매트 위에서도 고무 바닥에서도 미끄러지지 않습니다.</p></div></li>
+      <li class="last">
+        <span class="fig">
+          <svg class="ico" viewBox="0 0 64 64" role="img" aria-label="밖에서 달리는 동작">
+          <g fill="none" stroke="#c2c2c8" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 52 L60 52"/><path d="M2 18 L10 18"/><path d="M1 26 L7 26"/><path d="M3 34 L9 34"/></g>
+          <g fill="#0d0d0d">
+            <circle cx="29" cy="9.5" r="5.4"/>
+            <g fill="none" stroke="#0d0d0d" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28.5 13.5 L27.5 17" stroke-width="5"/>
+              <path d="M27.5 17.5 L25 30" stroke-width="8"/>
+              <g stroke-width="5"><path d="M26.5 20 L35.5 23 L35.5 15"/><path d="M26.5 20 L17 24.5 L19 31.5"/></g>
+              <g stroke-width="6.5"><path d="M25 30 L36 31 L33 39.5"/><path d="M25 30 L21 39.5 L17 48"/></g>
+            </g>
+            <g transform="translate(30,38.6) rotate(-28)"><path d="M0 0 h6.8 q3.6 0 4.3 2 q.45 1.5 -1.5 1.5 h-9.8 q-2.2 0 -2.2 -1.75 q0 -1.75 2.2 -1.75 z"/></g><g transform="translate(14,48.6)"><path d="M0 0 h6.8 q3.6 0 4.3 2 q.45 1.5 -1.5 1.5 h-9.8 q-2.2 0 -2.2 -1.75 q0 -1.75 2.2 -1.75 z"/></g>
+          </g>
+          <g fill="none" stroke="#0d0d0d" stroke-width="2.6" stroke-linecap="round"></g>
+        </svg>
+          <span class="t">00:55</span>
+        </span>
+        <div><h3>마무리 유산소</h3>
+          <p>갈아 신지 않습니다. 그대로 뜁니다.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ 3. 통념 반박 — 이 페이지의 척추 ═══════════════════ -->
+<section class="dark pad myth">
+  <div class="col">
+    <p class="eyebrow">The real question</p>
+    <h2 class="quoted">“쿠션 있는 신발로<br>스쿼트해도 되나요?”</h2>
+    <p class="lead">많이 받는 질문이고, 근거 있는 걱정입니다.
+      다만 원인이 잘못 지목되는 경우가 많습니다.</p>
+    <p class="answer">문제는 쿠션의 <em>두께</em>가 아니라<br>바닥 <em>플랫폼의 폭</em>입니다.</p>
+
+    <figure class="dia">
+      <div class="dia-grid">
+
+        <div class="panel">
+          <h5>일반 러닝화 미드솔</h5>
+          <svg viewBox="0 0 240 180" role="img"
+               aria-label="좁은 미드솔이 좌우 하중에 기울어 한쪽 모서리로 눌리는 단면">
+            <defs>
+              <marker id="arA" viewBox="0 0 10 10" refX="8" refY="5"
+                      markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M0 0 L10 5 L0 10 z" fill="#c8ff2e"/>
+              </marker>
+            </defs>
+            <line x1="10" y1="140" x2="230" y2="140" stroke="#3a3a42" stroke-width="1.5"/>
+            <line x1="112" y1="16" x2="146" y2="52" stroke="#c8ff2e" stroke-width="2" marker-end="url(#arA)"/>
+            <text x="152" y="36" fill="#c8ff2e" font-size="10" font-family="Pretendard,sans-serif">좌우 하중</text>
+            <line x1="34" y1="140" x2="206" y2="140" stroke="#c8ff2e" stroke-width="1"
+                  stroke-dasharray="3 3" opacity=".45"/>
+            <g transform="rotate(13 160 140)">
+              <path d="M92 102 L150 102 L160 140 L82 140 Z" fill="#26262c" stroke="#5a5a64" stroke-width="1.5"/>
+              <rect x="88" y="91" width="66" height="11" rx="3" fill="#43434d"/>
+            </g>
+          </svg>
+          <p class="r">바닥 면이 좁아 한쪽부터 눌린다<br><b>→ 발이 따라 기울어짐</b></p>
+        </div>
+
+        <div class="panel hi">
+          <h5>BR-001 · STABLE CORE™</h5>
+          <svg viewBox="0 0 240 180" role="img"
+               aria-label="같은 높이에 넓은 플랫폼을 가진 미드솔이 좌우 하중에도 수평을 유지하는 단면">
+            <defs>
+              <marker id="arB" viewBox="0 0 10 10" refX="8" refY="5"
+                      markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M0 0 L10 5 L0 10 z" fill="#c8ff2e"/>
+              </marker>
+            </defs>
+            <line x1="10" y1="140" x2="230" y2="140" stroke="#3a3a42" stroke-width="1.5"/>
+            <line x1="112" y1="16" x2="146" y2="52" stroke="#c8ff2e" stroke-width="2" marker-end="url(#arB)"/>
+            <text x="152" y="36" fill="#c8ff2e" font-size="10" font-family="Pretendard,sans-serif">좌우 하중</text>
+            <line x1="34" y1="140" x2="206" y2="140" stroke="#c8ff2e" stroke-width="1"
+                  stroke-dasharray="3 3" opacity=".45"/>
+            <path d="M70 102 L170 102 L186 140 L54 140 Z" fill="#1c1c22" stroke="#c8ff2e" stroke-width="1.8"/>
+            <rect x="76" y="91" width="88" height="11" rx="3" fill="#43434d"/>
+            <line x1="54" y1="156" x2="186" y2="156" stroke="#c8ff2e" stroke-width="1"/>
+            <line x1="54" y1="152" x2="54" y2="160" stroke="#c8ff2e" stroke-width="1"/>
+            <line x1="186" y1="152" x2="186" y2="160" stroke="#c8ff2e" stroke-width="1"/>
+            <text x="120" y="174" fill="#c8ff2e" font-size="9.5" text-anchor="middle"
+                  font-family="Pretendard,sans-serif">넓은 접지면</text>
+          </svg>
+          <p class="r">같은 쿠션 높이, 넓어진 바닥 면<br><b class="ok">→ 수평 유지</b></p>
+        </div>
+
+      </div>
+      <figcaption>단면 비교 — 미드솔 높이는 같고 바닥 면의 폭만 다를 때, 좌우 하중이 걸리는 방향.
+        구조 설명을 위한 모식도입니다.</figcaption>
+    </figure>
+
+    <p>러닝화의 미드솔은 앞뒤 추진을 위해 좁고 둥글게 설계됩니다.
+       달릴 때는 이 형태가 유리하지만, 바벨을 들고 좌우로 힘이 실리는 순간
+       좁은 바닥 면이 먼저 눌리고 발이 따라 기울어집니다.
+       “쿠션 때문에 불안하다”고 느끼는 감각의 정체가 이것입니다.</p>
+    <p>BR-001은 쿠션을 덜어내는 대신 바닥 면을 넓혔습니다.
+       Stable Core™ 는 미드솔 하단을 넓은 플랫폼으로 펴서
+       좌우 하중이 걸려도 접지면이 수평을 유지하도록 설계한 구조입니다.
+       반발력은 러닝에서 쓰고, 안정성은 리프팅에서 씁니다.</p>
+
+    <p class="note">그래서 BR-001은 “쿠션을 줄인 러닝화”도
+      “쿠션을 넣은 리프팅화”도 아닙니다. 두 요구를 다른 부위로 나눠 푼 신발입니다.</p>
+  </div>
+</section>
+
+<!-- ═══ 4. 스펙 ═══════════════════════════════════════════ -->
+<section class="pad">
+  <div class="col">
+    <p class="eyebrow">How it works</p>
+    <h2>네 가지 구조</h2>
+
+    <div class="spec">
+      <span class="n">01</span><h3>어떤 바닥에서도 미끄러지지 않게</h3>
+      <p>Full-coverage CPU 아웃솔과 다방향 러그 패턴.
+         고무 바닥, 매트, 트레드밀 벨트까지 접지 방향을 가리지 않습니다.</p>
+      <img loading="lazy" decoding="async" width="1400" height="933" src="assets/detail-outsole.webp" alt="아웃솔의 다방향 러그 패턴">
+    </div>
+
+    <div class="spec">
+      <span class="n">02</span><h3>반발력과 안정성을 같이</h3>
+      <p>30만원대 프리미엄 모델에 쓰이는 A-TPU 100% 미드솔로 에너지를 돌려주고,
+         Stable Core™ 넓은 플랫폼으로 그 위를 안정적으로 받칩니다.</p>
+      <img loading="lazy" decoding="async" width="854" height="1097" src="assets/life/o025.jpg" alt="BR-001을 신고 선 두 사람의 다리">
+    </div>
+
+    <div class="spec">
+      <span class="n">03</span><h3>움직임이 바뀌어도 중심은 그대로</h3>
+      <p>미드풋과 힐을 연결하는 Bridge Mechanics™ 구조.
+         측면 지지와 비틀림 제어로 착지부터 방향 전환까지 발의 중심을 유지합니다.</p>
+      <img loading="lazy" decoding="async" width="854" height="1123" src="assets/life/o035.jpg" alt="BR-001을 신고 발을 내딛는 동작">
+    </div>
+
+    <div class="spec">
+      <span class="n">04</span><h3>오래 신어도 답답하지 않게</h3>
+      <p>기존 BR-001(오이스터 그레이 · 샌드 베이지)보다 어퍼를 통기성 좋은 메시로 바꿔
+         더 가볍고 쾌적합니다.</p>
+      <img loading="lazy" decoding="async" width="777" height="1115" src="assets/life/o018.jpg" alt="양말과 함께 신은 BR-001 클로즈업">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5. 비교표 ═════════════════════════════════════════ -->
+<section class="pad" style="background:#eceae4">
+  <div class="col">
+    <p class="eyebrow">Why not two pairs</p>
+    <h2>세 켤레를 놓고 보면</h2>
+    <p class="lead">헬스장에서 흔히 신는 두 종류와 BR-001이 각각 무엇을 위해 설계됐는지.</p>
+
+    <div class="cmp-scroll">
+      <table class="cmp">
+        <thead>
+          <tr><th></th><th>러닝화</th><th>리프팅화</th><th class="me">BR-001</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>쿠션 · 반발</th>
+            <td><span class="mark">●</span><span class="w"> 높음</span></td>
+            <td><span class="mark">○</span><span class="w"> 거의 없음</span></td>
+            <td class="me good"><span class="mark">●</span><span class="w"> A-TPU 100%</span></td></tr>
+          <tr><th>좌우 안정성</th>
+            <td><span class="mark">○</span><span class="w"> 좁은 플랫폼</span></td>
+            <td><span class="mark">●</span><span class="w"> 높음</span></td>
+            <td class="me good"><span class="mark">●</span><span class="w"> Stable Core™</span></td></tr>
+          <tr><th>접지력</th>
+            <td><span class="mark">◐</span><span class="w"> 노면 한정</span></td>
+            <td><span class="mark">◐</span><span class="w"> 평면 한정</span></td>
+            <td class="me good"><span class="mark">●</span><span class="w"> 다방향 러그</span></td></tr>
+          <tr><th>러닝 · 유산소</th>
+            <td><span class="mark">●</span></td>
+            <td><span class="mark">○</span></td>
+            <td class="me good"><span class="mark">●</span></td></tr>
+          <tr><th>웨이트</th>
+            <td><span class="mark">◐</span></td>
+            <td><span class="mark">●</span></td>
+            <td class="me good"><span class="mark">●</span></td></tr>
+          <tr><th>가방에 챙길 켤레</th>
+            <td>2<span class="w">켤레</span></td><td>2<span class="w">켤레</span></td>
+            <td class="me good">1<span class="w">켤레</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-note">● 적합 · ◐ 부분적 · ○ 부적합.
+      일반 러닝화 / 리프팅화는 각 카테고리의 일반적인 설계 특성을 기준으로 한 비교입니다.</p>
+  </div>
+</section>
+
+<!-- ═══ 6. 사이즈 ═════════════════════════════════════════ -->
+<section class="pad">
+  <div class="col">
+    <p class="eyebrow">Size</p>
+    <h2>사이즈 고르기</h2>
+    <p class="lead">온라인에서 신발을 살 때 가장 망설여지는 부분입니다.
+      아래대로 한 번만 재보면 실패 확률이 크게 줄어듭니다.</p>
+
+    <div class="sizes" id="sizes"></div>
+    <p style="font-size:12.5px;color:var(--ink-3);margin:0">230 — 300mm · 10mm 단위</p>
+
+    <div class="howto">
+      <h4>발 길이 재는 법</h4>
+      <ol>
+        <li>벽에 뒤꿈치를 붙이고 종이 위에 섭니다.</li>
+        <li>가장 긴 발가락 끝에 선을 긋습니다.</li>
+        <li>벽에서 선까지 자로 잽니다. 양발 중 긴 쪽을 기준으로 합니다.</li>
+        <li>저녁에 재세요. 발은 하루 중 저녁에 가장 큽니다.</li>
+      </ol>
+    </div>
+
+    <table class="szt">
+      <thead><tr><th>발 길이</th><th>권장 사이즈</th></tr></thead>
+      <tbody>
+        <tr><td>230 – 239 mm</td><td>230</td></tr>
+        <tr><td>240 – 249 mm</td><td>240</td></tr>
+        <tr><td>250 – 259 mm</td><td>250</td></tr>
+        <tr><td>260 – 269 mm</td><td>260</td></tr>
+        <tr><td>270 – 279 mm</td><td>270</td></tr>
+        <tr><td>280 – 289 mm</td><td>280</td></tr>
+        <tr><td>290 – 299 mm</td><td>290</td></tr>
+        <tr><td>300 mm 이상</td><td>300</td></tr>
+      </tbody>
+    </table>
+
+    <div class="rule">
+      <b>발 길이를 10mm 단위로 내리면 내 사이즈입니다</b>
+      <span>발 길이가 255mm라면 260이 아니라 <strong style="color:#fff">250</strong>입니다.
+        BR-001은 전체적으로 반 사이즈(약 5mm) 크게 나왔습니다.</span>
+    </div>
+
+    <div class="fit">
+      <h4>발볼과 발등은 여유 있게</h4>
+      <p>국내에서 개발한 신발입니다. 한국인 발 평균은 서구 기준보다 발볼이 넓고 발등이 높아,
+         BR-001은 그 기준으로 라스트를 잡았습니다. 발볼과 발등 모두 여유가 있습니다.</p>
+      <p>다른 브랜드에서 발볼이 껴서 한 사이즈 올려 신으셨다면,
+         BR-001에서는 올리지 마시고 위 표대로 골라 주세요.</p>
+      <p>반대로 발볼이 좁거나 발등이 낮은 편이라면 끈을 평소보다 한 칸 더 조여 주세요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. 리스크 제거 ════════════════════════════════════ -->
+<section class="pad" style="background:#eceae4">
+  <div class="col">
+    <p class="eyebrow">No risk</p>
+    <h2>사이즈가 안 맞으면<br>바꿔 드립니다</h2>
+    <p class="lead">신어보지 않고 사는 부담을 저희가 가져갑니다.</p>
+    <div class="risk">
+      <div><h4><i>1</i>첫 사이즈 교환 무료</h4>
+        <p>처음 받아보신 사이즈가 맞지 않으면 1회에 한해 왕복 배송비 없이 교환해 드립니다.</p></div>
+      <div><h4><i>2</i>제품 불량 · 오배송</h4>
+        <p>배송비 부담 없이 교환 또는 전액 환불해 드립니다.</p></div>
+      <div><h4><i>3</i>단순 변심 반품</h4>
+        <p>수령 후 7일 이내 미착용 상태에서 가능합니다. 편도 배송비 4,000원이 발생합니다.</p></div>
+    </div>
+    <p class="todo" style="margin-top:16px"><b>정책 확인 필요</b> — 현재 사전예약 페이지는
+      “교환 왕복 8,000원”입니다. 일반 판매 페이지에서 첫 교환 무료로 갈지 정해야 위 1번 문구가 확정됩니다.</p>
+  </div>
+</section>
+
+<!-- ═══ 8. 룩북 ═══════════════════════════════════════════ -->
+<section style="padding-block:68px 0;background:#eceae4">
+  <div class="col">
+    <p class="eyebrow">Look</p>
+    <h2>짐 안에서도, 밖에서도</h2>
+    <p class="lead" style="margin-bottom:30px">올블랙이라 운동복에도, 그대로 나가도 어색하지 않습니다.</p>
+  </div>
+  <div class="look">
+    <img loading="lazy" decoding="async" width="906" height="1123" class="wide" src="assets/life/o017.jpg" alt="BR-001을 신고 벽에 기대선 모습">
+    <img loading="lazy" decoding="async" width="843" height="1132" src="assets/life/o034.jpg" alt="박스에 앉아 BR-001을 신은 모습">
+    <img loading="lazy" decoding="async" width="811" height="1089" src="assets/life/o029.jpg" alt="바닥에 앉아 다리를 뻗은 모습">
+  </div>
+</section>
+
+<!-- ═══ 9. FAQ ════════════════════════════════════════════ -->
+<section class="pad">
+  <div class="col">
+    <p class="eyebrow">FAQ</p>
+    <h2>자주 묻는 질문</h2>
+
+    <details open><summary>스쿼트나 데드리프트 할 때 흔들리지 않나요?</summary>
+      <p>쿠션 신발이 불안정하게 느껴지는 원인은 대부분 바닥 플랫폼이 좁기 때문입니다.
+         BR-001은 Stable Core™ 로 미드솔 하단을 넓게 펴서 좌우 하중에도 접지면이
+         수평을 유지하도록 설계했습니다. 자세한 구조는 위 단면 비교를 참고해 주세요.</p></details>
+
+    <details><summary>리프팅화만큼 단단한가요?</summary>
+      <p>아닙니다. 굽이 있고 미드솔이 거의 없는 전용 리프팅화만큼 단단하지는 않습니다.
+         BR-001은 한 세션 안에서 유산소와 웨이트를 오가는 사용을 기준으로 설계됐습니다.
+         고중량 스쿼트만 집중적으로 하신다면 전용화가 더 맞습니다.</p></details>
+
+    <details><summary>러닝화로도 충분한가요?</summary>
+      <p>A-TPU 100% 미드솔은 30만원대 프리미엄 러닝 모델에 쓰이는 소재로,
+         착지 에너지를 되돌려 줍니다. 웜업과 마무리 유산소, 일상 러닝에 적합합니다.</p>
+      <!-- TODO: 권장 러닝 거리 — 내부 테스트 값 확인 후 명시 -->
+    </details>
+
+    <details><summary>기존 BR-001과 뭐가 다른가요?</summary>
+      <p>어퍼가 달라졌습니다. 오이스터 그레이 · 샌드 베이지 대비 통기성 좋은 메시 소재로
+         바꿔 더 가볍고 쾌적합니다. 미드솔과 아웃솔 구조는 동일합니다.</p></details>
+
+    <details><summary>발볼이 넓은 편인데 괜찮을까요?</summary>
+      <p>오히려 잘 맞는 편입니다. BR-001은 국내에서 한국인 발 평균을 기준으로 라스트를 설계해
+         발볼과 발등 모두 여유를 뒀습니다. 다른 브랜드에서 발볼 때문에 한 사이즈 올려 신으셨다면
+         BR-001에서는 올리지 마시고, 발 길이 기준 사이즈를 그대로 고르세요.</p></details>
+
+    <details><summary>사이즈가 크게 나온다던데 정말인가요?</summary>
+      <p>네. 전체적으로 반 사이즈(약 5mm) 크게 나왔습니다. 그래서 발 길이를 10mm 단위로
+         내려서 고르시면 됩니다 — 발 길이 255mm라면 250입니다.
+         발볼·발등에 여유가 있는 설계라 길이만 맞으면 헐겁지 않습니다.</p></details>
+  </div>
+</section>
+
+<!-- ═══ 10. 선수 증거 (상한선) ════════════════════════════ -->
+<section class="dark pad">
+  <div class="col">
+    <p class="eyebrow">Also at the top</p>
+    <h2 style="color:#fff">대회에서도<br>같은 신발을 신습니다</h2>
+    <p class="lead" style="margin-bottom:30px">일상 훈련을 기준으로 만들었지만,
+      상한선이 어디인지도 알려드립니다.</p>
+    <div class="ath">
+      <img loading="lazy" decoding="async" width="1040" height="1495" src="assets/athlete.webp" alt="하수현 선수">
+      <div><h3>하수현</h3>
+        <p>Hybrid · CrossFit Athlete &amp; Coach<br>
+           REXTREME 2026 하이브리드 게임 1위</p></div>
+    </div>
+    <blockquote>“항상 BR-001을 신고 훈련해요. 특히 대회 때 접지력과 반발성이 모두 좋아
+      스테이션마다 안정적으로 움직일 수 있었어요.”
+      <cite>하수현 · CrossFit Athlete &amp; Coach</cite></blockquote>
+  </div>
+</section>
+
+<footer>
+  <div class="col">
+    <b>주식회사 다리마티</b> · 대표자 황현욱<br>
+    사업자등록번호 827-88-03526 · 통신판매업 제2025-고양덕양구-2890호<br>
+    경기 고양시 덕양구 향동로 218, B915호<br>
+    070-7954-8541 · company@darimati.us<br><br>
+    © 2026 DARIMATI
+  </div>
+</footer>
+
+<!-- ═══ STICKY CTA ════════════════════════════════════════ -->
+<div class="buybar">
+  <div class="col">
+    <div class="p"><b>159,000원</b><span id="picked">사이즈를 선택해 주세요</span></div>
+    <button type="button" onclick="buy()">장바구니 담기</button>
+  </div>
+</div>
+
+<script>
+/* 영상이 히어로 하단으로 내려가 첫 화면 밖이므로, 화면에 들어올 때 받아서 재생한다.
+   모션 최소화를 켠 사용자에겐 포스터 + 컨트롤만 준다. */
+(function(){
+  const v = document.getElementById('hv');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { v.controls = true; return; }
+  new IntersectionObserver((es, o) => {
+    if (!es[0].isIntersecting) return;
+    v.preload = 'auto'; v.autoplay = true; v.play().catch(() => { v.controls = true; });
+    o.disconnect();
+  }, {rootMargin: '200px'}).observe(v);
+})();
+
+/* 메인 영상 소리 — 자동재생 정책상 음소거로 시작한다 */
+function toggleSound(){
+  const v = document.getElementById('hv'), b = document.getElementById('sndBtn');
+  v.muted = !v.muted;
+  b.textContent = v.muted ? '🔇 소리 켜기' : '🔊 소리 끄기';
+  if (!v.muted) v.play().catch(() => {});
+}
+
+/* 사이즈 선택 — 선택 여부가 구매 의도 지표라 이벤트로 잡을 것 */
+const SIZES = [230,240,250,260,270,280,290,300];
+let picked = null;
+const box = document.getElementById('sizes');
+box.innerHTML = SIZES.map(s =>
+  `<button type="button" aria-pressed="false" data-s="${s}">${s}</button>`).join('');
+box.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  picked = b.dataset.s;
+  [...box.children].forEach(x => x.setAttribute('aria-pressed', x === b));
+  document.getElementById('picked').textContent = picked + 'mm 선택됨';
+  // TODO: dataLayer.push({event:'size_select', size:picked})
+});
+function buy(){
+  if (!picked) {
+    document.getElementById('sizes').scrollIntoView({behavior:'smooth', block:'center'});
+    document.getElementById('picked').textContent = '사이즈를 먼저 선택해 주세요';
+    return;
+  }
+  alert(`프로토타입 — ${picked}mm 장바구니 담기`);
+}
+</script>
+</body>
+</html>
